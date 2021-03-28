@@ -1,0 +1,9 @@
+version: "3"
+services: 
+  CryptoPayrateChecker:
+    image: tetra61/cpc:0.1
+    container_name: crypto_payrate_checker
+    restart: always
+    environment: 
+      URL1: $URL1
+      URL2: $URL2
