@@ -17,7 +17,7 @@ args = parser.parse_args()
 # 標準出力に出力
 sh = StreamHandler()
 # ファイル出力
-fh = FileHandler("./crypto_payrate_checker.log")
+fh = FileHandler("./settings/crypto_payrate_checker.log")
 
 basicConfig(
     level=args.debug_level,
@@ -29,7 +29,7 @@ basicConfig(
 logger = getLogger(__name__)
 
 def main():
-    with open("./pc_data.json") as f:
+    with open("./settings/pc_data.json") as f:
         pc_data = json.load(f)
 
     discord_api_all = DiscordApi(args.payrate_url)
@@ -37,7 +37,7 @@ def main():
     payrate_checker = PayrateChecker(pc_data)
 
     while True:
-        f = open("./pc_data.json")
+        f = open("./settings/pc_data.json")
         pc_data = json.load(f)
         f.close()
 
